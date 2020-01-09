@@ -3,8 +3,7 @@ from Crypto.Cipher import Salsa20
 from wincrypt import CryptImportKey, CryptDecrypt
 
 if len(sys.argv) <= 2:
-    print("Usage: %s rsa_user_private_file encrypted_file" %
-          sys.argv[0], file=sys.stderr)
+    print("Usage: %s rsa_user_private_file encrypted_file" %sys.argv[0], file=sys.stderr)
     sys.exit(1)
 
 privUserRsaFile, fencrname = sys.argv[1], sys.argv[2]
@@ -21,8 +20,10 @@ fencr = open(fencrname, "rb")
 fencr.seek(-padding_end, 2)
 pad = fencr.read(padding_end)
 
+# V4-V5.2 GandCarb have same sample byte, because their filemaker code is same.
+# https://twitter.com/demonslay335/status/1097902970182819840 
 if (pad[20:] != bytes.fromhex("1829899381820300")):
-    print("[X] This file doesn't seem to be encrypted with Gandcrab 5.2!", file=sys.stderr)
+    print("[X] This file doesn't seem to be encrypted with Gandcrab V4-V5.2!", file=sys.stderr)
     sys.exit(1)
 
 fdecrname = ".".join(fencrname.split(".")[:-1])
