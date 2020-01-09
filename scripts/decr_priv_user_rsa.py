@@ -26,12 +26,12 @@ privateKeySize = struct.unpack("<I", rkey[:4])[0]
 print("[+] Priv key size: %d" % privateKeySize)
 # Next 256 bytes are RSA-encrypted salsa key
 salsakey = rkey[4:(4+256)]
-# マスター鍵で解除
+
 salsakey = CryptDecrypt(priv, salsakey)[:32]
 print("[+] Salsa key: %s" % salsakey.hex())
 # Next 256 bytes are RSA-encrypted
 salsanonce = rkey[(4+256):(4+2*256)]
-# マスター鍵で解除
+
 salsanonce = CryptDecrypt(priv, salsanonce)[:8]
 print("[+] Salsa nonce: %s" % salsanonce.hex())
 
