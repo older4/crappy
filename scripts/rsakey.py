@@ -1,8 +1,10 @@
 import struct
 from tools import int_from_bytes
 
+
 def import_int(b):
     return int_from_bytes(b, "little")
+
 
 class Data:
     def __init__(self, data):
@@ -12,6 +14,8 @@ class Data:
         ret = self.__data[:n]
         self.__data = self.__data[n:]
         return ret
+
+
 class RSAPubKey:
 
     def __init__(self, data):
@@ -26,6 +30,7 @@ class RSAPubKey:
     @property
     def valid(self):
         return (self.N == self.p * self.q)
+
 
 class RSAPrivKey:
     def __init__(self, data):
