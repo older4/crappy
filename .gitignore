@@ -104,5 +104,5 @@ venv.bak/
 .mypy_cache/
 
 # VScode
-/.vscode
+.vscode/
 sample_run/V5.0.4/gal_o_man.png
