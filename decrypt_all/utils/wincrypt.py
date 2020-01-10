@@ -1,5 +1,5 @@
-from rsakey import RSAPrivKey
-from tools import int_from_bytes, int_to_bytes
+from  .rsakey import RSAPrivKey
+from .tools import int_from_bytes, int_to_bytes
 
 
 def unpad(data):

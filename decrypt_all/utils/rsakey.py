@@ -1,5 +1,5 @@
 import struct
-from tools import int_from_bytes
+from .tools import int_from_bytes
 
 
 def import_int(b):

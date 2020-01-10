@@ -75,11 +75,3 @@ def scan_crypted_file(skip_root_folders="defalt",ext=None):
                         if(os.path.isfile(p)):
                             yield p
 
-if __name__ == "__main__":
-    print(get_ransom_ext("D:\my_program\crappy\sample_run\V5.0.4\GXHYCAXAKJ-DECRYPT.txt"))
-
-    for path in scan_crypted_file(ext="jpg"):
-        print(path)
-    # r = scan_crypted_file()
-    # for i in range(10000):
-    #     print(next(r))
